@@ -1,34 +1,34 @@
-
-
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trang có mật khẩu</title>
+  <title> REPORT</title>
   <script>
-    // Thiết lập mật khẩu ở đây:
-    const PASSWORD = "fuji123";
-
     function checkPassword() {
-      const input = prompt("Vui lòng nhập mật khẩu để xem nội dung:");
-      if (input === PASSWORD) {
-        // Nếu đúng thì hiển thị nội dung
-        document.getElementById("protected-content").style.display = "block";
+      const password = document.getElementById("password").value;
+      const correctPassword = "abc123"; // 🔒 Thay đổi mật khẩu tại đây
+      if (password === correctPassword) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("report").style.display = "block";
       } else {
-        alert("Sai mật khẩu! Bạn sẽ được chuyển hướng ra ngoài.");
-        // Hoặc bạn có thể làm window.close() nếu chạy local, hoặc redirect:
-        window.location.href = "about:blank";
+        alert("Sai mật khẩu!");
       }
     }
-    // Khi load page, yêu cầu kiểm tra mật khẩu
-    window.onload = checkPassword;
   </script>
-  <style>
-    /* Ẩn phần content ban đầu */
-    #protected-content { display: none; }
-  </style>
 </head>
-<body>
-  <h1>BÁO CÁO FUJIFOODS</h1>
-<iframe title="Fuji Report_26.02." width="1024" height="1060" src="https://app.powerbi.com/view?r=eyJrIjoiOTIyZmRhNmItNGExYS00YTUzLTg5OTUtYTUyNDRlMjA3YjdiIiwidCI6IjE4MmVkZDhiLTQ5YjgtNGFmOC1iNWU0LWY5ZWRmMDhhZTk2NyIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px">
+
+  <div id="login">
+    <h2>Vui lòng nhập mật khẩu để xem báo cáo</h2>
+    <input type="password" id="password" placeholder="Mật khẩu" />
+    <button onclick="checkPassword()">Truy cập</button>
+  </div>
+
+  <div id="report" style="display:none;">
+    <h2> REPORT </h2>
+    <iframe width="100%" height="600px"
+      src="https://app.powerbi.com/view?r=eyJrIjoiOTIyZmRhNmItNGExYS00YTUzLTg5OTUtYTUyNDRlMjA3YjdiIiwidCI6IjE4MmVkZDhiLTQ5YjgtNGFmOC1iNWU0LWY5ZWRmMDhhZTk2NyIsImMiOjEwfQ%3D%3D"
+      frameborder="0" allowFullScreen="true"></iframe>
+  </div>
+
+</body>
+</html>
